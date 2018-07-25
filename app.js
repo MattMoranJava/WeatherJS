@@ -2,7 +2,8 @@
 const storage = new Storage();
 
 //Init weather object
-const weather = new Weather(storage.getLocationData().city, storage.getLocationData().state);
+const weatherLocation = storage.getLocationData();
+const weather = new Weather(weatherLocation.city, weatherLocation.state);
 const ui = new UI();
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
