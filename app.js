@@ -1,5 +1,8 @@
+//Init storage
+const storage = new Storage();
+
 //Init weather object
-const weather = new Weather('London', 'UK');
+const weather = new Weather(storage.getLocationData().city, storage.getLocationData().state);
 const ui = new UI();
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
@@ -9,6 +12,7 @@ document.getElementById('w-change-btn' ).addEventListener('click', (e) => {
     const city = document.getElementById('city').value;
     const state = document.getElementById('state').value;
     weather.changeLocation(city, state);
+    storage.setLocationData(city, state);
     getWeather();
 
     //close modal

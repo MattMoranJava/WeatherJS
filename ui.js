@@ -16,7 +16,7 @@ class UI {
         this.desc.textContent = weather.weather[0].main;
         this.string.textContent = Math.round((weather.main.temp - 273) * 100 + Number.EPSILON) / 100;
         //this.details.textContent = weather.weather[0].description;
-        this.icon.setAttribute('src', `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`);
+        this.icon.setAttribute('src', `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`);
         this.humidity.textContent = `Humidity: ${weather.main.humidity}`;
         this.wind.textContent = `Wind Heading: ${weather.wind.deg} degrees, speed: ${weather.wind.speed} kph`;
     }
