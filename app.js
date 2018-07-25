@@ -15,8 +15,20 @@ document.getElementById('w-change-btn' ).addEventListener('click', (e) => {
     $('#locModal').modal('hide');
 });
 
+//Make return in State form field fire a button click on w-change-btn
+const stateField = document.getElementById('state');
+stateField.addEventListener('keyup', (e) => {
+    e.preventDefault();
+    if (e.keyCode === 13){
+        document.getElementById('w-change-btn').click();
+    }
+});
+
 function getWeather() {
     weather.getWeather()
     .then(results => ui.paint(results))
-    .catch(err => console.log(err));
+    .catch(err => {
+        ui.clear(document.getElementById('city').value);
+        console.log(err);
+    });
 }

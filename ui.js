@@ -6,7 +6,6 @@ class UI {
         this.details = document.getElementById('w-details');
         this.icon = document.getElementById('w-icon');
         this.humidity = document.getElementById('w-humidity');
-        this.dewpoint = document.getElementById('w-dewpoint');
         this.wind = document.getElementById('w-wind');
 
     }
@@ -20,5 +19,14 @@ class UI {
         this.icon.setAttribute('src', `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`);
         this.humidity.textContent = `Humidity: ${weather.main.humidity}`;
         this.wind.textContent = `Wind Heading: ${weather.wind.deg} degrees, speed: ${weather.wind.speed} kph`;
+    }
+
+    clear(loc){
+        this.location.textContent = 'Location not found';
+        this.desc.textContent = `OpenWeatherMap doesn't recognise ${loc}`;
+        this.string.textContent = 'Try again.';
+        this.icon.setAttribute('src', '');
+        this.humidity.textContent = '';
+        this.wind.textContent = '';
     }
 }
